@@ -1098,7 +1098,6 @@
     )
   )
 
-
   (junction (at 38.1 29.21) (diameter 0) (color 0 0 0 0)
     (uuid 4718377a-e331-4906-81b6-4df8569feacd)
   )
@@ -1914,6 +1913,11 @@
   (text "SPI / One Wire output organized for level shifter" (at 152.4 129.54 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid fd1a4c74-6cda-4726-aecc-3fab0324fbe3)
+  )
+
+  (label "SW_PWR" (at 175.26 153.67 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 86b78617-cfc1-4a6b-ba0a-f273ea6664cf)
   )
 
   (global_label "I2C_DA" (shape input) (at 109.22 39.37 0) (fields_autoplaced)
@@ -2737,7 +2741,7 @@
     (uuid 518b86e9-f59c-4f73-b19a-33521db7f705)
     (property "Reference" "J12" (id 0) (at 229.87 144.8902 0))
     (property "Value" "Conn_01x03" (id 1) (at 229.87 147.4271 0))
-    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" (id 2) (at 229.87 152.4 0)
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (id 2) (at 229.87 152.4 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 229.87 152.4 0)
@@ -2824,7 +2828,7 @@
     (property "Value" "Conn_01x03" (id 1) (at 198.882 155.3722 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" (id 2) (at 196.85 153.67 0)
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (id 2) (at 196.85 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 196.85 153.67 0)
@@ -3560,13 +3564,13 @@
       (reference "J9") (unit 1) (value "Conn_01x06") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical")
     )
     (path "/67a3e386-15db-4f94-9925-f50f444a5bd7"
-      (reference "J10") (unit 1) (value "Conn_01x03") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical")
+      (reference "J10") (unit 1) (value "Conn_01x03") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
     )
     (path "/2c7b32a0-5fd7-4db6-977a-150574e469ff"
       (reference "J11") (unit 1) (value "Conn_01x04") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical")
     )
     (path "/518b86e9-f59c-4f73-b19a-33521db7f705"
-      (reference "J12") (unit 1) (value "Conn_01x03") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical")
+      (reference "J12") (unit 1) (value "Conn_01x03") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
     )
     (path "/8e20d17c-3471-4547-9d6f-5b37d649f1fb"
       (reference "SW1") (unit 1) (value "SW_Push") (footprint "Button_Switch_THT:SW_PUSH_6mm_H5mm")
