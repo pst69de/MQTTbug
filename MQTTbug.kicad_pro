@@ -388,7 +388,14 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power",
-        "nets": [],
+        "nets": [
+          "+3V3",
+          "/SW_PWR",
+          "GND",
+          "VCC",
+          "Vin+",
+          "Vin-"
+        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
@@ -407,7 +414,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "MQTTbug.net",
-      "specctra_dsn": "",
+      "specctra_dsn": "MQTTbug.dsn",
       "step": "",
       "vrml": ""
     },
