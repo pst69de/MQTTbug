@@ -143,15 +143,17 @@ class I2CDevice:
         if in_end is None:
             in_end = len(in_buffer)
 
-        self.i2c.writeto_then_readfrom(
-            self.device_address,
-            out_buffer,
-            in_buffer,
-            out_start=out_start,
-            out_end=out_end,
-            in_start=in_start,
-            in_end=in_end,
-        )
+        #self.i2c.writeto_then_readfrom(
+        #    self.device_address,
+        #    out_buffer,
+        #    in_buffer,
+        #    out_start=out_start,
+        #    out_end=out_end,
+        #    in_start=in_start,
+        #    in_end=in_end,
+        #)
+        self.i2c.writeto(self.device_address, out_buffer)
+        self.i2c.readfrom_into(self.device_address, in_buffer)
 
     # pylint: enable-msg=too-many-arguments
 

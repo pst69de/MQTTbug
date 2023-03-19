@@ -5,6 +5,17 @@ print( "ip: " + str(wlan.ifconfig()[0]))
 #sys.exit()
 
 try:
+    oled.fill(0)
+    line = 0
+    if noNet:
+        oled.text('no Net',0,line,1)
+        line += 10
+    else:
+        oled.text('con:' + ssid,0,line,1)
+        line += 10
+        oled.text(str(wlan.ifconfig()[0]),0,line,1)
+        line += 10
+    oled.show()
     lasttime = utime.time()
     livetick = 0
     while onPin():
@@ -18,9 +29,11 @@ try:
                 oled.fill_rect(0,devline,128,10,0)        
                 oled.text(dev.readvalues(), 0, devline, 1)
                 devline += 10
-                dev.publishvalues(mqtt,station)
+                if not noMQTT:
+                    dev.publishvalues(mqtt,station)
             oled.show()
-        mqtt.check_msg()
+        if not noMQTT:
+            mqtt.check_msg()
         if livetick % 60 == 0:
             gc.collect()
 

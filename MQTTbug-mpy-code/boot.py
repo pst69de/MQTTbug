@@ -13,6 +13,8 @@ from connect import wlan_connect, mqtt_connect
 
 onPin = Pin(22, mode=Pin.IN, pull=Pin.PULL_UP)
 print('onPin is 22')
+noNet = True
+noMQTT = True
 
 try:
     # 0x3C is used by SSH1306 and SH1106 OLEDs
@@ -91,16 +93,41 @@ try:
             oled.text(str(stat[3]),96,line,1)
             line += 10
             oled.show()
+    if ssid:
+        noNet = False
+        wlan = wlan_connect(wlan, ssid, station, oled, line)
+    else:
+        print("no Net")
+        oled.fill(0)
+        oled.text("no Net",0,0,1)
+        oled.show()
+        line = 10
+        for stat in stats:
+            network = stat[0].decode()
+            rssi = stat[3]
+            if network:
+                print(network)
+                oled.text(network,0,line,1)
+                oled.text(str(rssi),96,line,1)
+                line += 10
+                oled.show()
+        #print("reset on no Net")
+        utime.sleep(15)
+        #reset()
 
-    mqtthost = "192.168.69.111"
-    mqtt = None
-    mqtttopic = str.encode(station + "/text")
-
-
-    wlan = wlan_connect(wlan, ssid, station, oled, line)
-    mqtt = mqtt_connect(mqtt, mqtthost, mqtttopic, station)
-
-    #mqtt.wait_msg()
+    if not noNet:
+        for amqtt in mqtts:
+            mqtthost = amqtt
+            # take first
+            break
+        #print("mqtt:",mqtthost)
+        mqtt = None
+        mqtttopic = str.encode(station + "/text")
+        mqtt = mqtt_connect(mqtt, mqtts, mqtthost, mqtttopic, station)
+        #mqtt.wait_msg()
+        if not mqtt:
+            noMQTT = False
+        
 except Exception as e:
     print("RESTART script on Exception {}".format(str(e)))
     utime.sleep(15)
