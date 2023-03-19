@@ -7,9 +7,13 @@ print( "ip: " + str(wlan.ifconfig()[0]))
 try:
     oled.fill(0)
     line = 0
-    if noNet:
-        oled.text('no Net',0,line,1)
-        line += 10
+    if noNet or noMQTT:
+        if noNet:
+            oled.text('no Net',0,line,1)
+            line += 10
+        if noMQTT:
+            oled.text('no MQTT',0,line,1)
+            line += 10
     else:
         oled.text('con:' + ssid,0,line,1)
         line += 10

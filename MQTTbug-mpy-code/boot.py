@@ -125,8 +125,11 @@ try:
         mqtttopic = str.encode(station + "/text")
         mqtt = mqtt_connect(mqtt, mqtts, mqtthost, mqtttopic, station)
         #mqtt.wait_msg()
-        if not mqtt:
+        if mqtt:
             noMQTT = False
+        else:
+            print(help(mqtt))
+            print(mqtt)
         
 except Exception as e:
     print("RESTART script on Exception {}".format(str(e)))
